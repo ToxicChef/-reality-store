@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>REALITY — South African Streetwear</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050505;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* TOP BAR */
+
+    .top-bar {
+      background: linear-gradient(90deg, #ff1744, #8b00ff, #ff1744);
+      color: #fff;
+      text-align: center;
+      padding: 8px 10px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      background: rgba(5, 5, 5, 0.94);
+      border-bottom: 1px solid #222;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 1000;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #ff1744;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a:hover {
+      color: #b000ff;
+    }
+
+    .cart {
+      border: 1px solid #fff;
+      padding: 9px 13px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(circle at 20% 40%, rgba(139, 0, 255, 0.28), transparent 28%),
+        radial-gradient(circle at 80% 60%, rgba(255, 23, 68, 0.22), transparent 28%),
+        #050505;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 140%;
+      height: 1px;
+      background: #8b00ff;
+      transform: rotate(-8deg);
+      opacity: 0.4;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 5px;
+      color: #ff1744;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(65px, 18vw, 190px);
+      line-height: 0.8;
+      letter-spacing: -8px;
+      font-weight: 1000;
+      text-transform: uppercase;
+      text-shadow:
+        5px 5px 0 #8b00ff,
+        -3px -3px 0 #ffffff;
+    }
+
+    .hero-subtitle {
+      margin: 30px auto;
+      max-width: 600px;
+      font-size: 13px;
+      line-height: 1.8;
+      letter-spacing: 2px;
+      color: #ccc;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 17px 30px;
+      background: #fff;
+      color: #000;
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: 0.2s;
+    }
+
+    .hero-button:hover {
+      background: #ff1744;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 90px 6%;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      margin-bottom: 35px;
+      border-bottom: 1px solid #292929;
+      padding-bottom: 15px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 7vw, 60px);
+      letter-spacing: -3px;
+      text-transform: uppercase;
+    }
+
+    .section-heading span {
+      color: #ff1744;
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .product {
+      background: #0c0c0c;
+      border: 1px solid #222;
+      overflow: hidden;
+      transition: 0.25s;
+    }
+
+    .product:hover {
+      transform: translateY(-7px);
+      border-color: #8b00ff;
+    }
+
+    .product-image {
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        linear-gradient(135deg, #151515 25%, #080808 25%, #080808 50%, #151515 50%, #151515 75%, #080808 75%);
+      background-size: 35px 35px;
+    }
+
+    .product-image::before {
+      content: "REALITY";
+      position: absolute;
+      font-size: 42px;
+      font-weight: 1000;
+      letter-spacing: -3px;
+      transform: rotate(-12deg);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+    }
+
+    .product-number {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #ff1744;
+      padding: 6px 9px;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .product-info {
+      padding: 17px;
+    }
+
+    .product-info h3 {
+      font-size: 13px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .price {
+      color: #b000ff;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* BRAND SECTION */
+
+    .brand {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255, 23, 68, 0.18), transparent 30%),
+        radial-gradient(circle at 10% 80%, rgba(139, 0, 255, 0.2), transparent 30%),
+        #0a0a0a;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+
+    .brand-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .brand h2 {
+      font-size: clamp(45px, 9vw, 100px);
+      line-height: 0.85;
+      letter-spacing: -5px;
+      text-transform: uppercase;
+    }
+
+    .brand h2 span {
+      color: #ff1744;
+    }
+
+    .brand p {
+      color: #aaa;
+      line-height: 1.9;
+      font-size: 14px;
+      max-width: 500px;
+    }
+
+    .brand-tag {
+      display: inline-block;
+      margin-top: 25px;
+      color: #b000ff;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    /* CULTURE STRIP */
+
+    .culture {
+      padding: 25px 0;
+      overflow: hidden;
+      border-bottom: 1px solid #222;
+      border-top: 1px solid #222;
+      white-space: nowrap;
+      background: #000;
+    }
+
+    .culture-track {
+      display: inline-block;
+      animation: move 18s linear infinite;
+      font-size: 14px;
+      font-weight: 1000;
+      letter-spacing: 4px;
+    }
+
+    .culture-track span {
+      margin: 0 30px;
+    }
+
+    .purple {
+      color: #b000ff;
+    }
+
+    .red {
+      color: #ff1744;
+    }
+
+    @keyframes move {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 60px 6% 30px;
+      background: #000;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding-bottom: 50px;
+    }
+
+    .footer-logo {
+      font-size: 35px;
+      font-weight: 1000;
+    }
+
+    .footer-logo span {
+      color: #8b00ff;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 25px;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #222;
+      padding-top: 20px;
+      color: #666;
+      font-size: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        padding: 0 18px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      .hero h1 {
+        letter-spacing: -5px;
+        text-shadow:
+          3px 3px 0 #8b00ff,
+          -2px -2px 0 #fff;
+      }
+
+      section {
+        padding: 65px 18px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .product-image {
+        height: 220px;
+      }
+
+      .product-image::before {
+        font-size: 28px;
+      }
+
+      .brand-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .footer-top {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 450px) {
+
+      .products {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .product-image {
+        height: 180px;
+      }
+
+      .hero-subtitle {
+        font-size: 11px;
+      }
+
+      .section-heading h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    SOUTH AFRICA • Y2K STREETWEAR • AUTOMOTIVE CULTURE
+  </div>
+
+  <nav>
+    <a href="#" class="logo">
+      REALIT<span>Y</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <a href="#" class="cart">
+      CART (0)
+    </a>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          SOUTH AFRICA / EST. 2026
+        </div>
+
+        <h1>REALITY</h1>
+
+        <p class="hero-subtitle">
+          Y2K STREETWEAR · AUTOMOTIVE CULTURE · HIP-HOP ENERGY
+          <br>
+          BUILT FOR THE ONES WHO CREATE THEIR OWN REALITY.
+        </p>
+
+        <a href="#shop" class="hero-button">
+          Shop The Drop →
+        </a>
+
+      </div>
+
+    </section>
+
+    <div class="culture">
+      <div class="culture-track">
+        <span>REALITY</span>
+        <span class="purple">Y2K</span>
+        <span>STREETWEAR</span>
+        <span class="red">SOUTH AFRICA</span>
+        <span>AUTOMOTIVE</span>
+        <span class="purple">REALITY</span>
+        <span>HIP-HOP</span>
+        <span class="red">2026</span>
+        <span>REALITY</span>
+        <span class="purple">Y2K</span>
+        <span>STREETWEAR</span>
+        <span class="red">SOUTH AFRICA</span>
+      </div>
+    </div>
+
+    <section id="shop">
+
+      <div class="section-heading">
+        <h2>Latest Drop</h2>
+        <span>DROP 001 / 2026</span>
+      </div>
+
+      <div class="products">
+
+        <article class="product">
+          <div class="product-image">
+            <div class="product-number">01</div>
+          </div>
+          <div class="product-info">
+            <h3>REALITY SPEED TEE</h3>
+            <div class="price">R499</div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-image">
+            <div class="product-number">02</div>
+          </div>
+          <div class="product-info">
+            <h3>REALITY Y2K HOODIE</h3>
+            <div class="price">R899</div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-image">
+            <div class="product-number">03</div>
+          </div>
+          <div class="product-info">
+            <h3>REALITY RACING TEE</h3>
+            <div class="price">R499</div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-image">
+            <div class="product-number">04</div>
+          </div>
+          <div class="product-info">
+            <h3>REALITY OG CAP</h3>
+            <div class="price">R399</div>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <section class="brand" id="about">
+
+      <div class="brand-grid">
+
+        <div>
+          <h2>
+            BUILT<br>
+            IN <span>REALITY.</span>
+          </h2>
+        </div>
+
+        <div>
+          <p>
+            Reality is a South African streetwear brand inspired by
+            Y2K design, automotive culture and hip-hop energy.
+            Bold graphics. Fast cars. Heavy music. Street culture.
+          </p>
+
+          <p style="margin-top:20px;">
+            Designed for people who don't follow the scene —
+            they create it.
+          </p>
+
+          <div class="brand-tag">
+            MADE IN THE SOUTH.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer id="contact">
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+        REALIT<span>Y</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">Contact</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 REALITY. ALL RIGHTS RESERVED.</span>
+      <span>SOUTH AFRICA</span>
+    </div>
+
+  </footer>
+
+</body>
+</html>
