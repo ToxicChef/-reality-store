@@ -1,0 +1,249 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>REALITY ADMIN</title><style>
+:root{--bg:#070707;--p:#111;--l:#292929;--t:#fff;--m:#999;--a:#8b2cff;--p2:#ff1f9a}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#24103d,#070707 40%);color:var(--t);font-family:Arial,sans-serif}.wrap{max-width:1100px;margin:auto;padding:16px}.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--l);padding:8px 0 16px}.brand{font-weight:900;letter-spacing:3px}.brand span{color:var(--p2)}.badge{font-size:11px;border:1px solid #56338a;padding:6px 9px;border-radius:99px;color:#d7c1ff}.tabs{display:flex;gap:8px;overflow:auto;padding:13px 0;position:sticky;top:0;background:#070707ee;z-index:5}.tabs button,.btn{border:1px solid #333;background:#171717;color:#fff;border-radius:10px;padding:10px 13px}.tabs button.active,.primary{background:var(--a);border-color:var(--a)}.section{display:none}.section.active{display:block}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{background:#111e;border:1px solid var(--l);border-radius:17px;padding:15px;margin-bottom:15px}.muted,.note{color:var(--m);font-size:13px}.field{display:grid;gap:6px;margin:11px 0}.field label{font-size:12px;color:#bbb}.field input,.field select,.field textarea{width:100%;background:#090909;color:#fff;border:1px solid #333;border-radius:9px;padding:10px}.field textarea{min-height:75px}.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}.row,.chips,.swatches{display:flex;gap:7px;flex-wrap:wrap}.chip{border:1px solid #333;background:#090909;color:#ddd;border-radius:99px;padding:8px 10px}.chip.selected{border-color:var(--a);background:#24113e}.swatch{width:36px;height:36px;border-radius:50%;border:2px solid #444}.swatch.selected{outline:2px solid var(--a);outline-offset:2px}.black{background:#080808}.white{background:#eee}.grey{background:#777}.navy{background:#101d43}.red{background:#9e1828}.purple{background:#6c24a8}.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.ai{background:#090909;color:#fff;border:1px solid #333;border-radius:11px;padding:11px;text-align:left}.ai.selected{border-color:var(--a)}.ai strong{display:block}.ai small{color:#aaa}.preview{min-height:470px;display:grid;place-items:center;position:relative;background:radial-gradient(circle,#2a1744,#111 40%,#090909 75%);border-radius:12px;overflow:hidden}.scene{width:310px;height:390px;perspective:900px;display:grid;place-items:center;touch-action:none}.garment{width:245px;height:300px;position:relative;transform-style:preserve-3d;filter:drop-shadow(0 24px 22px #000)}.body{position:absolute;inset:28px 28px 0;border-radius:35px 35px 20px 20px;background:#151515;box-shadow:inset -20px 0 30px #ffffff0d,inset 20px 0 30px #0008}.sleeve{position:absolute;top:42px;width:75px;height:115px;background:#151515;z-index:-1}.sl{left:0;transform:rotate(28deg);border-radius:20px 10px 35px 20px}.sr{right:0;transform:rotate(-28deg);border-radius:10px 20px 20px 35px}.collar{position:absolute;top:27px;left:95px;width:55px;height:32px;border:9px solid #090909;border-radius:50%;z-index:2}.print{position:absolute;z-index:4;left:62px;top:92px;width:122px;min-height:105px;text-align:center;font-weight:900;font-size:14px;line-height:1.05;transform:translateZ(18px);word-break:break-word;display:grid;place-items:center;padding:8px}.artwork-preview{max-width:100%;max-height:100%;object-fit:contain;display:none;filter:drop-shadow(0 5px 8px #0008)}.design-bg{position:absolute;z-index:3;left:42px;top:76px;width:162px;height:137px;border:1px solid #ffffff30;border-radius:12px;display:none;overflow:hidden;background:linear-gradient(135deg,#8b2cff22,#ff1f9a22)}.design-bg:before,.design-bg:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 18px,#ffffff18 19px 22px);mix-blend-mode:screen}.design-bg:after{background:repeating-linear-gradient(45deg,transparent 0 25px,#ff1f9a20 26px 29px);transform:scale(1.4)}.hint{text-align:center;color:#aaa;font-size:11px;margin-top:-28px}.rot{text-align:center;margin-top:8px}.catalogs{display:grid;grid-template-columns:1fr 1fr;gap:12px}.catalog{padding:15px;border:1px solid var(--l);background:#101010;border-radius:14px}.catalog.active{border-color:var(--a)}.status{display:inline-block;font-size:11px;padding:6px 8px;border-radius:8px;background:#142a1d;color:#7ef0a9;margin-top:8px}@media(max-width:760px){.grid{grid-template-columns:1fr}.two,.catalogs{grid-template-columns:1fr}.wrap{padding:12px}}
+</style>
+<style id="reality-admin-enhancements">
+.enh-wrap{margin-top:22px;padding:16px;border:1px solid #292929;border-radius:16px;background:#0d0d0d}
+.enh-wrap h2{margin:0 0 10px;font-size:20px}
+.enh-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.enh-btn{border:1px solid #333;background:#151515;color:#fff;border-radius:10px;padding:11px 12px;font-weight:700;cursor:pointer}
+.enh-btn.primary{background:#8b2cff;border-color:#8b2cff}
+.enh-btn.danger{border-color:#6b2222}
+.enh-note{font-size:12px;color:#aaa;line-height:1.45}
+.enh-layers{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.enh-layer{display:flex;justify-content:space-between;align-items:center;padding:9px 10px;background:#151515;border:1px solid #292929;border-radius:9px}
+.enh-layer.active{border-color:#8b2cff}
+.enh-row{display:flex;gap:8px;flex-wrap:wrap}
+.enh-pill{display:inline-flex;padding:6px 9px;border:1px solid #333;border-radius:999px;font-size:12px;color:#ddd}
+.enh-safe{position:relative;border:1px dashed #8b2cff;border-radius:14px;padding:14px;margin-top:10px;text-align:center;color:#bbb}
+.enh-safe:after{content:"PRINT-SAFE AREA";position:absolute;top:5px;right:8px;font-size:9px;color:#8b2cff}
+.enh-preview{perspective:900px;display:flex;justify-content:center;align-items:center;min-height:300px;background:radial-gradient(circle at 50% 35%,#252525,#080808 65%);border-radius:16px;overflow:hidden;touch-action:none}
+.enh-garment{width:210px;height:240px;background:#181818;position:relative;transform-style:preserve-3d;transform:rotateY(0deg);transition:transform .15s ease;clip-path:polygon(20% 8%,38% 0,62% 0,80% 8%,100% 29%,83% 45%,73% 29%,73% 100%,27% 100%,27% 29%,17% 45%,0 29%);box-shadow:0 20px 45px rgba(0,0,0,.5)}
+.enh-art{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);max-width:55%;max-height:42%;object-fit:contain;pointer-events:none}
+.enh-design-label{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);font-weight:900;font-size:15px;letter-spacing:2px;white-space:nowrap}
+.enh-controls{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.enh-select,.enh-input{width:100%;box-sizing:border-box;background:#151515;border:1px solid #333;color:#fff;border-radius:9px;padding:10px}
+@media(max-width:600px){.enh-grid{grid-template-columns:1fr}.enh-preview{min-height:280px}}
+</style>
+
+</head><body><div class="wrap">
+<div class="top"><div class="brand">REALI<span>TY</span> ADMIN</div><div class="badge">OWNER MODE • LOCAL</div></div>
+<nav class="tabs"><button class="active" data-tab="create">CREATE</button><button data-tab="themes">THEME STUDIO</button><button data-tab="catalogues">CATALOGUES</button></nav>
+<section id="create" class="section active"><div class="grid"><div>
+<div class="card"><h2>Create product</h2><div class="muted">Your current storefront stays untouched.</div><div class="field"><label>Product name</label><input id="name" value="REALITY NEW DROP"></div><div class="two"><div class="field"><label>T-POD garment</label><select id="garment"><option>100% Cotton T-shirt</option><option>Recycled T-shirt</option><option>Hoodie</option></select></div><div class="field"><label>Price (R)</label><input id="price" type="number" value="499"></div></div><div class="field"><label>Garment colour</label><div class="swatches" id="swatches"><button class="swatch black selected"></button><button class="swatch white"></button><button class="swatch grey"></button><button class="swatch navy"></button><button class="swatch red"></button><button class="swatch purple"></button></div></div><div class="field"><label>Print area</label><div class="chips" id="areas"><button class="chip selected">Front</button><button class="chip">Back</button><button class="chip">Sleeve</button><button class="chip">Inside collar</button></div></div></div>
+<div class="card"><h3>AI design choices</h3><div class="muted">Pick a style and generate four concepts to choose from.</div><div class="chips" id="styles" style="margin:10px 0"><button class="chip selected">Y2K</button><button class="chip">Racing</button><button class="chip">Automotive</button><button class="chip">Hip-hop</button><button class="chip">Chrome</button><button class="chip">Graffiti</button><button class="chip">Minimal</button><button class="chip">Distressed</button></div><button class="btn primary" id="gen">Generate 4 Designs</button><div class="ai-grid" id="ais"></div></div>
+<div class="card"><h3>Artwork & text</h3><div class="field"><label>Upload artwork <span class="muted">(optional)</span></label><input id="art" type="file" accept="image/*"><div class="note">When you add artwork, CREATE automatically builds a matching background treatment around it. You can still use text, colours and effects with it.</div></div><div class="two"><div class="field"><label>Text</label><input id="txt" value="REALITY"></div><div class="field"><label>Text colour</label><input id="tc" type="color" value="#ffffff"></div></div><div class="row"><button class="btn" id="minus">− Size</button><button class="btn" id="plus">+ Size</button><button class="btn" id="left">← Move</button><button class="btn" id="right">Move →</button><button class="btn" id="rot">Rotate</button><button class="btn" id="del">Delete</button></div><p class="note">This is the working admin prototype. T-POD print-position rules can be tightened further once each garment's exact supported areas are confirmed.</p></div>
+</div><div>
+<div class="card"><h2>3D Preview</h2><div class="muted">Touch-drag the garment left/right to rotate it.</div><div class="preview"><div class="scene" id="scene"><div class="garment" id="g"><div class="body" id="body"></div><div class="sleeve sl" id="sl"></div><div class="sleeve sr" id="sr"></div><div class="collar"></div><div class="design-bg" id="designBg"></div><div class="print" id="print"><span id="artWrap"><img id="artImg" class="artwork-preview" alt="Uploaded artwork preview"></span><span id="textLayer">REALITY</span></div></div></div><div class="hint">TOUCH + DRAG TO ROTATE</div></div><div class="rot"><button class="btn" id="front">Front</button> <button class="btn" id="back">Back</button> <button class="btn" id="zo">−</button> <button class="btn" id="zi">+</button> <button class="btn" id="reset">Reset</button></div></div>
+<div class="card"><h3>Product details</h3><div class="field"><label>Description</label><textarea id="desc">A new REALITY streetwear drop.</textarea></div><div class="two"><div class="field"><label>Sizes</label><input value="S, M, L, XL, 2XL"></div><div class="field"><label>Category</label><select><option>New Drop</option><option>Tees</option><option>Hoodies</option><option>Limited</option></select></div></div><div class="row"><button class="btn" id="draft">Save Draft</button><button class="btn" id="save">Save Product Locally</button><button class="btn primary" id="publish">Publish to Catalogue</button></div><div id="msg" class="status" style="display:none">Saved locally.</div></div>
+</div></div></section>
+<section id="themes" class="section"><div class="card"><h2>Theme Studio</h2><div class="muted">Separate website-look controls for different catalogues.</div></div><div class="grid"><div class="card"><h3>Theme controls</h3><div class="field"><label>Theme name</label><input id="tn" value="REALITY CORE"></div><div class="two"><div class="field"><label>Background</label><input id="bg" type="color" value="#080808"></div><div class="field"><label>Accent</label><input id="ac" type="color" value="#8b2cff"></div></div><div class="two"><div class="field"><label>Buttons</label><input id="bt" type="color" value="#8b2cff"></div><div class="field"><label>Text</label><input id="tx" type="color" value="#ffffff"></div></div><div class="field"><label>Product-card style</label><select><option>Clean</option><option>Neon border</option><option>Chrome</option><option>Minimal</option></select></div><div class="field"><label>Hero style</label><select><option>Big wordmark</option><option>Racing banner</option><option>Y2K glow</option><option>Minimal</option></select></div><div class="field"><label>Font style</label><select><option>Bold Street</option><option>Tech</option><option>Clean Sans</option><option>Condensed Racing</option></select></div><div class="field"><label>Announcement</label><input id="ann" value="NEW DROP • REALITY"></div><button class="btn" id="st">Save Theme</button> <button class="btn primary" id="at">Activate Theme</button></div><div class="card"><h3>Live preview</h3><div id="tp" style="height:120px;border-radius:11px;padding:14px;display:flex;align-items:flex-end;font-weight:900;background:#080808;border:1px solid #333">NEW DROP • REALITY</div><div id="ms" style="margin-top:10px;padding:15px;border:1px solid #333;border-radius:12px"><strong>REALI<span style="color:#ff1f9a">TY</span></strong><p class="muted">Catalogue storefront preview</p><button id="mb" class="btn primary">SHOP DROP</button></div></div></div></section>
+<section id="catalogues" class="section"><div class="card"><h2>Catalogues</h2><div class="muted">Each catalogue can have its own theme.</div></div><div class="catalogs"><div class="catalog active"><h3>REALITY CORE</h3><p class="muted">Everyday collection</p><span class="status">ACTIVE</span></div><div class="catalog"><h3>Y2K DROP</h3><p class="muted">Chrome / neon / 2000s</p><button class="btn primary act">Activate</button></div><div class="catalog"><h3>RACING DROP</h3><p class="muted">Automotive / speed / track</p><button class="btn primary act">Activate</button></div><div class="catalog"><h3>MIDNIGHT DROP</h3><p class="muted">Dark premium collection</p><button class="btn primary act">Activate</button></div></div></section>
+</div><script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$$('.tabs button').forEach(b=>b.onclick=()=>{$$('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.section').forEach(x=>x.classList.remove('active'));$('#'+b.dataset.tab).classList.add('active')});
+function chips(id){$$(id+' .chip').forEach(b=>b.onclick=()=>{$$(id+' .chip').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')})}chips('#areas');chips('#styles');
+const names=['NEON SPEED','CHROME 2000','RACE GRID','NIGHT RUN'];const subs=['Chrome wordmark + speed lines','Metallic lettering + dark contrast','Checkered detail + bold type','Minimal mark + neon accent'];
+function makeAI(){ $('#ais').innerHTML=names.map((n,i)=>`<button class="ai ${i?'':'selected'}"><strong>${n}</strong><small>${subs[i]}</small></button>`).join('');$$('.ai').forEach(b=>b.onclick=()=>{$$('.ai').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');$('#txt').value=b.querySelector('strong').textContent;render()})}makeAI();$('#gen').onclick=makeAI;
+let angle=0,scale=1,size=14,x=0,down=false,sx=0,sa=0;
+function render(){let g=$('#g');g.style.transform=`rotateY(${angle}deg) scale(${scale})`;$('#print').style.transform=`translateX(${x}px) translateZ(18px)`;$('#print').style.fontSize=size+'px'}
+$$('#swatches .swatch').forEach(b=>b.onclick=()=>{$$('#swatches .swatch').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');let c=getComputedStyle(b).backgroundColor;$('#body').style.background=c;$('#sl').style.background=c;$('#sr').style.background=c});
+$('#txt').oninput=e=>{$('#textLayer').textContent=e.target.value;render()};$('#tc').oninput=e=>$('#print').style.color=e.target.value;
+$('#art').addEventListener('change',e=>{const file=e.target.files&&e.target.files[0];if(!file){return}const url=URL.createObjectURL(file);$('#artImg').src=url;$('#artImg').style.display='block';$('#textLayer').style.display='none';$('#designBg').style.display='block';const n=file.name.toLowerCase();if(n.includes('red')){$('#designBg').style.background='linear-gradient(135deg,#ff1f9a33,#8b2cff22)'}else{$('#designBg').style.background='linear-gradient(135deg,#8b2cff33,#ff1f9a22)'}render()});
+$('#plus').onclick=()=>{size=Math.min(30,size+2);render()};$('#minus').onclick=()=>{size=Math.max(8,size-2);render()};$('#left').onclick=()=>{x-=8;render()};$('#right').onclick=()=>{x+=8;render()};$('#rot').onclick=()=>{angle+=15;render()};$('#del').onclick=()=>{$('#print').style.display='none';$('#designBg').style.display='none'};
+$('#front').onclick=()=>{angle=0;render()};$('#back').onclick=()=>{angle=180;render()};$('#zi').onclick=()=>{scale=Math.min(1.3,scale+.08);render()};$('#zo').onclick=()=>{scale=Math.max(.75,scale-.08);render()};$('#reset').onclick=()=>{angle=0;scale=1;size=14;x=0;$('#print').style.display='block';render()};
+$('#scene').onpointerdown=e=>{down=true;sx=e.clientX;sa=angle;$('#scene').setPointerCapture(e.pointerId)};$('#scene').onpointermove=e=>{if(down){angle=sa+(e.clientX-sx)*.8;render()}};$('#scene').onpointerup=()=>down=false;$('#scene').onpointercancel=()=>down=false;
+$('#save').onclick=()=>{localStorage.setItem('realityDraft',JSON.stringify({name:$('#name').value,garment:$('#garment').value,price:$('#price').value,text:$('#txt').value,description:$('#desc').value}));$('#msg').style.display='inline-block';setTimeout(()=>$('#msg').style.display='none',1600)};$('#publish').onclick=()=>alert('Prototype publish button: your live storefront is intentionally unchanged.');$('#draft').onclick=()=>alert('Draft saved in this prototype.');
+function theme(){let bg=$('#bg').value,ac=$('#ac').value,bt=$('#bt').value,tx=$('#tx').value;$('#tp').style.background=bg;$('#tp').style.color=tx;$('#tp').style.borderColor=ac;$('#ms').style.background=bg;$('#ms').style.color=tx;$('#mb').style.background=bt;$('#mb').style.borderColor=bt;$('#tp').textContent=$('#ann').value}['bg','ac','bt','tx','ann'].forEach(id=>$('#'+id).oninput=theme);$('#st').onclick=()=>alert('Theme saved in this prototype.');$('#at').onclick=()=>alert('Theme activated in this prototype; the live storefront is unchanged.');
+$$('.act').forEach(b=>b.onclick=()=>{let cs=$$('.catalog');cs.forEach(c=>{c.classList.remove('active');let s=c.querySelector('.status');if(s)s.remove()});let c=b.closest('.catalog');c.classList.add('active');c.insertAdjacentHTML('beforeend','<span class="status">ACTIVE</span>')});
+render();
+</script>
+<section class="enh-wrap" id="enhancements">
+  <h2>CREATE Pro Tools</h2>
+  <div class="enh-note">Owner-only design tools. These controls are local prototypes for now; AI generation and T-POD order handoff can be connected later.</div>
+
+  <div class="enh-grid" style="margin-top:12px">
+    <button class="enh-btn" id="undoBtn" type="button">↶ Undo</button>
+    <button class="enh-btn" id="redoBtn" type="button">↷ Redo</button>
+    <button class="enh-btn" id="duplicateBtn" type="button">Duplicate</button>
+    <button class="enh-btn" id="deleteBtn" type="button">Delete Active</button>
+    <button class="enh-btn primary" id="buildBtn" type="button">Build Around My Artwork</button>
+    <button class="enh-btn" id="saveBtn" type="button">Save Design</button>
+    <button class="enh-btn" id="exportBtn" type="button">Export / Print Preview</button>
+    <button class="enh-btn" id="variantBtn" type="button">Add Variant</button>
+  </div>
+
+  <div class="enh-wrap" style="margin:14px 0 0">
+    <h2 style="font-size:16px">AI Design Concepts</h2>
+    <div class="enh-note">Choose a concept to apply styling around the current design. This does not call an AI service yet.</div>
+    <div class="enh-grid" style="margin-top:10px">
+      <button class="enh-btn concept" data-concept="Y2K">Y2K</button>
+      <button class="enh-btn concept" data-concept="RACING">Racing</button>
+      <button class="enh-btn concept" data-concept="AUTOMOTIVE">Automotive</button>
+      <button class="enh-btn concept" data-concept="HIP-HOP">Hip-Hop</button>
+      <button class="enh-btn concept" data-concept="CHROME">Chrome</button>
+      <button class="enh-btn concept" data-concept="GRAFFITI">Graffiti</button>
+      <button class="enh-btn concept" data-concept="DISTRESSED">Distressed</button>
+      <button class="enh-btn concept" data-concept="MINIMAL">Minimal</button>
+    </div>
+  </div>
+
+  <div class="enh-wrap" style="margin:14px 0 0">
+    <h2 style="font-size:16px">Layers</h2>
+    <div class="enh-row">
+      <span class="enh-pill">Artwork</span><span class="enh-pill">Text</span><span class="enh-pill">Effects</span><span class="enh-pill">Background</span>
+    </div>
+    <div class="enh-layers" id="layerList">
+      <div class="enh-layer active"><span>Artwork</span><span>ACTIVE</span></div>
+      <div class="enh-layer"><span>Text / Reality</span><span>—</span></div>
+      <div class="enh-layer"><span>Style Effects</span><span>—</span></div>
+    </div>
+  </div>
+
+  <div class="enh-wrap" style="margin:14px 0 0">
+    <h2 style="font-size:16px">Saved Designs</h2>
+    <div class="enh-row">
+      <input class="enh-input" id="designName" placeholder="Design name">
+      <button class="enh-btn" id="loadBtn" type="button">Load Last Saved</button>
+    </div>
+    <div class="enh-note" id="saveStatus" style="margin-top:8px">No design saved in this session.</div>
+  </div>
+
+  <div class="enh-wrap" style="margin:14px 0 0">
+    <h2 style="font-size:16px">Product Variants</h2>
+    <div class="enh-grid">
+      <input class="enh-input" id="variantName" placeholder="Variant name, e.g. Black / Purple">
+      <select class="enh-select" id="variantColour">
+        <option>Black</option><option>White</option><option>Grey</option><option>Navy</option><option>Purple</option><option>Red</option>
+      </select>
+    </div>
+    <div class="enh-note" id="variantList" style="margin-top:8px">No variants added yet.</div>
+  </div>
+
+  <div class="enh-wrap" style="margin:14px 0 0">
+    <h2 style="font-size:16px">3D Preview</h2>
+    <div class="enh-note">Drag left/right on the garment to rotate. Use the buttons for front/back and zoom. This is a working lightweight 3D prototype, not a physically accurate garment renderer.</div>
+    <div class="enh-preview" id="previewArea">
+      <div class="enh-garment" id="garment3d">
+        <img class="enh-art" id="previewArtwork" alt="Artwork preview" hidden>
+        <div class="enh-design-label" id="previewLabel">REALITY</div>
+      </div>
+    </div>
+    <div class="enh-controls">
+      <button class="enh-btn" type="button" id="frontBtn">Front</button>
+      <button class="enh-btn" type="button" id="backBtn">Back</button>
+      <button class="enh-btn" type="button" id="zoomBtn">Zoom</button>
+    </div>
+    <div class="enh-safe">Keep important artwork inside this area to reduce print clipping risk.</div>
+  </div>
+
+  <div class="enh-wrap" style="margin:14px 0 0">
+    <h2 style="font-size:16px">Optional Artwork</h2>
+    <input class="enh-input" id="enhArtworkUpload" type="file" accept="image/png,image/jpeg,image/webp">
+    <div class="enh-note" style="margin-top:8px">Artwork is optional. If uploaded, it becomes the focal point and the selected concept is built around it.</div>
+  </div>
+</section>
+
+
+<script id="reality-admin-enhancements-js">
+(function(){
+  const root = document.getElementById('enhancements');
+  if(!root) return;
+  let angle = 0, zoom = 1, scale = 1;
+  const garment = document.getElementById('garment3d');
+  const preview = document.getElementById('previewArea');
+  const artwork = document.getElementById('previewArtwork');
+  const label = document.getElementById('previewLabel');
+  const status = document.getElementById('saveStatus');
+  const history = [];
+  const future = [];
+  let state = {concept:'REALITY', label:'REALITY', artwork:null, zoom:1, variants:[]};
+
+  function snapshot(){
+    return JSON.parse(JSON.stringify(state));
+  }
+  function pushHistory(){
+    history.push(snapshot());
+    if(history.length>30) history.shift();
+    future.length=0;
+  }
+  function applyState(s){
+    state = JSON.parse(JSON.stringify(s));
+    label.textContent = state.label || state.concept || 'REALITY';
+    if(state.artwork){ artwork.src=state.artwork; artwork.hidden=false; }
+    else { artwork.hidden=true; artwork.removeAttribute('src'); }
+    zoom = state.zoom || 1;
+    garment.style.transform = 'rotateY('+angle+'deg) scale('+zoom+')';
+    document.querySelectorAll('.enh-layer').forEach((x,i)=>x.classList.toggle('active',i===0));
+    status.textContent = state.savedName ? 'Saved: '+state.savedName : 'Design ready.';
+  }
+  function change(fn){ pushHistory(); fn(); applyState(state); }
+
+  document.getElementById('undoBtn').onclick=()=>{ if(!history.length)return; future.push(snapshot()); applyState(history.pop()); };
+  document.getElementById('redoBtn').onclick=()=>{ if(!future.length)return; history.push(snapshot()); applyState(future.pop()); };
+  document.getElementById('duplicateBtn').onclick=()=>change(()=>{ state.label=(state.label||'REALITY')+' COPY'; });
+  document.getElementById('deleteBtn').onclick=()=>change(()=>{ state.artwork=null; state.label='REALITY'; });
+
+  document.querySelectorAll('.concept').forEach(btn=>{
+    btn.onclick=()=>change(()=>{
+      state.concept=btn.dataset.concept;
+      state.label=btn.dataset.concept==='RACING'?'REALITY SPEED':btn.dataset.concept==='Y2K'?'REALITY Y2K':btn.dataset.concept;
+      garment.style.background = btn.dataset.concept==='Y2K' ? '#32105d' : btn.dataset.concept==='RACING' ? '#151515' : '#181818';
+      label.style.textShadow = btn.dataset.concept==='CHROME' ? '0 0 10px #fff' : 'none';
+    });
+  });
+
+  document.getElementById('buildBtn').onclick=()=>{
+    change(()=>{
+      if(!state.artwork){ state.label='REALITY CONCEPT'; }
+      else { state.label='REALITY '+(state.concept||'CUSTOM'); }
+    });
+  };
+
+  document.getElementById('saveBtn').onclick=()=>{
+    const name=(document.getElementById('designName').value||'Reality Design').trim();
+    state.savedName=name;
+    localStorage.setItem('reality_admin_design',JSON.stringify(state));
+    status.textContent='Saved: '+name;
+  };
+  document.getElementById('loadBtn').onclick=()=>{
+    const raw=localStorage.getItem('reality_admin_design');
+    if(!raw){status.textContent='No saved design found on this device.';return;}
+    try{pushHistory();applyState(JSON.parse(raw));}catch(e){status.textContent='Saved design could not be loaded.';}
+  };
+
+  document.getElementById('variantBtn').onclick=()=>{
+    const n=(document.getElementById('variantName').value||'Variant').trim();
+    const c=document.getElementById('variantColour').value;
+    state.variants.push(n+' — '+c);
+    document.getElementById('variantList').textContent=state.variants.join(' • ');
+  };
+
+  document.getElementById('enhArtworkUpload').addEventListener('change',e=>{
+    const file=e.target.files && e.target.files[0];
+    if(!file)return;
+    const reader=new FileReader();
+    reader.onload=ev=>change(()=>{state.artwork=ev.target.result;});
+    reader.readAsDataURL(file);
+  });
+
+  document.getElementById('frontBtn').onclick=()=>{angle=0;garment.style.transform='rotateY(0deg) scale('+zoom+')';};
+  document.getElementById('backBtn').onclick=()=>{angle=180;garment.style.transform='rotateY(180deg) scale('+zoom+')';};
+  document.getElementById('zoomBtn').onclick=()=>{zoom=zoom>=1.35?1:zoom+0.15;state.zoom=zoom;garment.style.transform='rotateY('+angle+'deg) scale('+zoom+')';};
+
+  let dragging=false,lastX=0;
+  preview.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;preview.setPointerCapture(e.pointerId);});
+  preview.addEventListener('pointermove',e=>{
+    if(!dragging)return;
+    angle += (e.clientX-lastX)*0.7; lastX=e.clientX;
+    garment.style.transform='rotateY('+angle+'deg) scale('+zoom+')';
+  });
+  preview.addEventListener('pointerup',()=>dragging=false);
+  preview.addEventListener('pointercancel',()=>dragging=false);
+
+  document.getElementById('exportBtn').onclick=()=>window.print();
+
+  applyState(state);
+})();
+</script>
+
+</body></html>
