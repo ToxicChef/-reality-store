@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>REALITY — South African Streetwear</title>
 
 <style>
@@ -11,10 +10,6 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
 }
 
 body{
@@ -28,40 +23,21 @@ a{
   text-decoration:none;
 }
 
-button{
-  font-family:inherit;
-  cursor:pointer;
-}
-
-/* TOP BAR */
-
-.topbar{
-  background:#fff;
-  color:#000;
-  text-align:center;
-  padding:10px;
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:2px;
-}
-
-/* NAV */
-
-nav{
+header{
   position:sticky;
   top:0;
-  z-index:20;
+  z-index:100;
+  background:#080808;
+  border-bottom:1px solid #333;
+  padding:18px 5%;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  padding:18px 6%;
-  background:rgba(8,8,8,.95);
-  border-bottom:1px solid #292929;
+  align-items:center;
 }
 
 .logo{
-  font-size:28px;
-  font-weight:1000;
+  font-size:36px;
+  font-weight:900;
   letter-spacing:-2px;
 }
 
@@ -69,35 +45,23 @@ nav{
   color:#8b2cff;
 }
 
-.navlinks{
-  display:flex;
-  gap:25px;
-  font-size:13px;
-  font-weight:bold;
-}
-
-.navlinks a:hover{
-  color:#ff174f;
-}
-
 .cart-button{
   background:#fff;
-  color:#000;
+  color:#080808;
   border:0;
-  padding:10px 14px;
+  border-radius:12px;
+  padding:14px 20px;
+  font-size:16px;
   font-weight:900;
-  border-radius:5px;
 }
 
 .cart-count{
   background:#8b2cff;
   color:#fff;
-  padding:2px 6px;
-  border-radius:20px;
-  margin-left:4px;
+  border-radius:50%;
+  padding:5px 9px;
+  margin-left:6px;
 }
-
-/* HERO */
 
 .hero{
   min-height:75vh;
@@ -106,326 +70,146 @@ nav{
   justify-content:center;
   text-align:center;
   padding:70px 20px;
-  position:relative;
-  overflow:hidden;
   background:
-    radial-gradient(circle at 20% 30%,rgba(139,44,255,.25),transparent 30%),
-    radial-gradient(circle at 80% 70%,rgba(255,23,79,.18),transparent 30%),
-    #080808;
-}
-
-.hero:before{
-  content:"REALITY";
-  position:absolute;
-  font-size:25vw;
-  font-weight:1000;
-  color:rgba(255,255,255,.025);
-  white-space:nowrap;
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-}
-
-.hero p{
-  color:#aaa;
-  letter-spacing:5px;
-  font-size:12px;
-  font-weight:bold;
-  margin-bottom:15px;
+    radial-gradient(circle at 50% 40%,#32105f 0%,#080808 45%);
 }
 
 .hero h1{
   font-size:clamp(60px,15vw,150px);
-  line-height:.8;
-  font-weight:1000;
-  letter-spacing:-8px;
+  font-weight:900;
+  letter-spacing:-7px;
 }
 
 .hero h1 span{
   color:#8b2cff;
 }
 
-.hero-sub{
-  margin:30px auto;
-  max-width:500px;
+.hero p{
+  margin-top:20px;
+  font-size:18px;
+  letter-spacing:4px;
   color:#bbb;
-  line-height:1.6;
 }
 
-.hero-button{
-  display:inline-block;
-  padding:15px 28px;
-  background:#ff174f;
-  color:#fff;
-  font-weight:1000;
-  border-radius:4px;
-  transition:.2s;
-}
-
-.hero-button:hover{
-  transform:translateY(-3px);
-  background:#8b2cff;
-}
-
-/* SECTIONS */
-
-section{
-  padding:80px 6%;
+.shop{
+  padding:70px 5%;
 }
 
 .section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  margin-bottom:40px;
-}
-
-.section-title h2{
+  text-align:center;
   font-size:42px;
-  letter-spacing:-2px;
+  margin-bottom:45px;
+  font-weight:900;
 }
-
-.section-title p{
-  color:#777;
-  font-size:12px;
-}
-
-/* PRODUCTS */
 
 .products{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
+  grid-template-columns:repeat(2,1fr);
+  gap:28px;
+  max-width:1100px;
+  margin:auto;
 }
 
-.product-card{
+.product{
   background:#111;
-  border:1px solid #292929;
-  border-radius:8px;
+  border:1px solid #333;
+  border-radius:18px;
   overflow:hidden;
-  transition:.25s;
-}
-
-.product-card:hover{
-  transform:translateY(-6px);
-  border-color:#8b2cff;
 }
 
 .product-image{
-  height:330px;
+  height:420px;
+  background:#0c0c0c;
   display:flex;
-  justify-content:center;
   align-items:center;
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(135deg,#171717,#080808);
-}
-
-/* CLOTHING MOCKUPS */
-
-.tee{
-  width:150px;
-  height:185px;
-  background:#111;
-  position:relative;
-  clip-path:polygon(
-    20% 0,35% 0,50% 10%,65% 0,80% 0,
-    100% 25%,82% 38%,75% 27%,
-    75% 100%,25% 100%,25% 27%,
-    18% 38%,0 25%
-  );
-  box-shadow:0 15px 35px #000;
-}
-
-.tee:after{
-  content:"REALITY";
-  position:absolute;
-  left:50%;
-  top:48%;
-  transform:translate(-50%,-50%);
-  color:#fff;
-  font-size:13px;
-  font-weight:1000;
-  letter-spacing:2px;
-}
-
-.speed:after{
-  content:"REALITY\nSPEED";
-  white-space:pre;
-  text-align:center;
-  color:#8b2cff;
-}
-
-.racing:after{
-  content:"REALITY\nRACING";
-  white-space:pre;
-  text-align:center;
-  color:#ff174f;
-}
-
-.hoodie{
-  width:165px;
-  height:190px;
-  background:#151515;
-  position:relative;
-  border-radius:25px 25px 12px 12px;
-  box-shadow:0 15px 35px #000;
-}
-
-.hoodie:before{
-  content:"";
-  position:absolute;
-  width:75px;
-  height:55px;
-  border:8px solid #252525;
-  border-radius:50%;
-  left:50%;
-  top:-12px;
-  transform:translateX(-50%);
-}
-
-.hoodie:after{
-  content:"REALITY";
-  position:absolute;
-  top:90px;
-  left:50%;
-  transform:translateX(-50%);
-  color:#fff;
-  font-weight:1000;
-  letter-spacing:2px;
-}
-
-.beanie{
-  width:150px;
-  height:105px;
-  background:#151515;
-  border-radius:80px 80px 20px 20px;
-  position:relative;
-  box-shadow:0 15px 35px #000;
-}
-
-.beanie:after{
-  content:"REALITY";
-  position:absolute;
-  bottom:22px;
-  left:50%;
-  transform:translateX(-50%);
-  color:#8b2cff;
-  font-size:13px;
-  font-weight:1000;
-  letter-spacing:2px;
-}
-
-.product-info{
+  justify-content:center;
   padding:20px;
 }
 
-.product-info h3{
-  font-size:16px;
-  margin-bottom:8px;
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.product-info{
+  padding:25px;
+}
+
+.product h2{
+  font-size:23px;
+  margin-bottom:12px;
 }
 
 .price{
-  font-weight:1000;
-  color:#fff;
-  margin-bottom:15px;
+  font-size:27px;
+  font-weight:900;
+  margin-bottom:20px;
 }
 
 .sizes{
   display:flex;
-  gap:5px;
-  margin-bottom:15px;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:22px;
 }
 
 .size{
   background:#191919;
-  border:1px solid #333;
   color:#aaa;
-  padding:7px 9px;
-  font-size:11px;
-  border-radius:3px;
-}
-
-.size:hover{
-  border-color:#8b2cff;
-  color:#fff;
+  border:1px solid #444;
+  padding:10px 14px;
+  border-radius:6px;
 }
 
 .add{
   width:100%;
-  padding:12px;
+  padding:16px;
+  border:0;
+  border-radius:10px;
   background:#fff;
   color:#000;
-  border:0;
-  border-radius:4px;
-  font-weight:1000;
+  font-size:16px;
+  font-weight:900;
 }
-
-.add:hover{
-  background:#8b2cff;
-  color:#fff;
-}
-
-/* ABOUT */
 
 .about{
-  background:#101010;
-  border-top:1px solid #222;
-  border-bottom:1px solid #222;
+  padding:80px 10%;
   text-align:center;
+  background:#101010;
 }
 
 .about h2{
-  font-size:45px;
+  font-size:42px;
   margin-bottom:20px;
 }
 
 .about p{
-  max-width:650px;
+  max-width:700px;
   margin:auto;
-  color:#aaa;
-  line-height:1.8;
+  color:#bbb;
+  line-height:1.7;
 }
-
-/* FOOTER */
 
 footer{
-  padding:50px 6%;
+  padding:40px;
   text-align:center;
+  border-top:1px solid #333;
+  color:#777;
 }
-
-.footer-logo{
-  font-size:35px;
-  font-weight:1000;
-  margin-bottom:15px;
-}
-
-.footer-logo span{
-  color:#ff174f;
-}
-
-footer p{
-  color:#666;
-  font-size:12px;
-}
-
-/* CART */
 
 .cart-panel{
   position:fixed;
+  right:-100%;
   top:0;
-  right:-420px;
-  width:min(400px,100%);
-  height:100vh;
+  width:min(420px,100%);
+  height:100%;
   background:#111;
-  z-index:100;
-  border-left:1px solid #333;
+  z-index:200;
   padding:25px;
   transition:.3s;
   overflow-y:auto;
+  border-left:1px solid #444;
 }
 
 .cart-panel.open{
@@ -439,144 +223,55 @@ footer p{
   margin-bottom:30px;
 }
 
-.cart-header h2{
-  font-size:28px;
-}
-
-.close-cart{
-  background:#222;
-  color:#fff;
+.close{
+  background:none;
   border:0;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  font-size:20px;
+  color:#fff;
+  font-size:30px;
 }
 
 .cart-item{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  padding:15px 0;
-  border-bottom:1px solid #292929;
-}
-
-.cart-item h4{
-  margin-bottom:6px;
-}
-
-.cart-item p{
-  color:#aaa;
-  font-size:13px;
+  border-bottom:1px solid #333;
+  padding:18px 0;
 }
 
 .remove{
-  background:none;
+  margin-top:10px;
+  background:#8b2cff;
+  color:#fff;
   border:0;
-  color:#ff174f;
-  font-size:12px;
+  padding:8px 12px;
+  border-radius:5px;
 }
 
-.cart-total{
-  display:flex;
-  justify-content:space-between;
-  font-size:20px;
-  font-weight:1000;
+.total{
+  font-size:25px;
+  font-weight:900;
   margin:30px 0;
 }
 
 .checkout{
   width:100%;
-  padding:15px;
+  padding:17px;
+  background:#fff;
+  color:#000;
   border:0;
-  background:#8b2cff;
-  color:#fff;
-  font-weight:1000;
-  border-radius:4px;
+  border-radius:10px;
+  font-weight:900;
+  font-size:16px;
 }
 
-/* MOBILE */
-
-@media(max-width:800px){
-
-  .navlinks{
-    display:none;
-  }
-
-  nav{
-    padding:15px 5%;
-  }
-
-  .logo{
-    font-size:24px;
-  }
-
-  .hero{
-    min-height:70vh;
-  }
-
-  .hero h1{
-    letter-spacing:-5px;
-  }
-
+@media(max-width:700px){
   .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
+    grid-template-columns:1fr;
   }
 
   .product-image{
-    height:230px;
-  }
-
-  .tee{
-    transform:scale(.8);
-  }
-
-  .hoodie{
-    transform:scale(.8);
-  }
-
-  .beanie{
-    transform:scale(.8);
-  }
-
-  .product-info{
-    padding:14px;
-  }
-
-  .product-info h3{
-    font-size:13px;
-  }
-
-  .size{
-    padding:6px;
-  }
-
-  section{
-    padding:60px 5%;
-  }
-
-  .section-title h2{
-    font-size:32px;
-  }
-}
-
-@media(max-width:430px){
-
-  .products{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .product-image{
-    height:200px;
+    height:360px;
   }
 
   .hero h1{
-    font-size:65px;
-  }
-
-  .topbar{
-    font-size:9px;
+    letter-spacing:-4px;
   }
 }
 </style>
@@ -584,217 +279,139 @@ footer p{
 
 <body>
 
-<div class="topbar">
-  FREE SOUTH AFRICAN SHIPPING ON ORDERS OVER R1000
-</div>
-
-<nav>
-  <div class="logo">REAL<span>ITY</span></div>
-
-  <div class="navlinks">
-    <a href="#shop">SHOP</a>
-    <a href="#about">ABOUT</a>
-  </div>
+<header>
+  <div class="logo">REALI<span>TY</span></div>
 
   <button class="cart-button" onclick="toggleCart()">
     CART <span class="cart-count" id="cartCount">0</span>
   </button>
-</nav>
-
-<header class="hero">
-  <div class="hero-content">
-    <p>SOUTH AFRICA • EST. 2026</p>
-
-    <h1>REAL<span>ITY</span></h1>
-
-    <div class="hero-sub">
-      Streetwear built for people who don't follow the road.
-      Y2K energy. Automotive attitude. South African identity.
-    </div>
-
-    <a href="#shop" class="hero-button">SHOP THE DROP</a>
-  </div>
 </header>
 
-<section id="shop">
-
-  <div class="section-title">
-    <div>
-      <p>THE FIRST DROP</p>
-      <h2>SHOP</h2>
-    </div>
-
-    <p>04 PIECES</p>
+<section class="hero">
+  <div>
+    <h1>REALI<span>TY</span></h1>
+    <p>SOUTH AFRICAN STREETWEAR</p>
   </div>
-
-  <div class="products">
-
-    <!-- PRODUCT 1 -->
-
-    <div class="product-card">
-
-      <div class="product-image">
-        <div class="tee speed"></div>
-      </div>
-
-      <div class="product-info">
-        <h3>REALITY SPEED TEE</h3>
-        <div class="price">R499</div>
-
-        <div class="sizes">
-          <button class="size">S</button>
-          <button class="size">M</button>
-          <button class="size">L</button>
-          <button class="size">XL</button>
-        </div>
-
-        <button
-          class="add"
-          onclick="addToCart('REALITY SPEED TEE',499)">
-          ADD TO CART
-        </button>
-      </div>
-
-    </div>
-
-    <!-- PRODUCT 2 -->
-
-    <div class="product-card">
-
-      <div class="product-image">
-        <div class="hoodie"></div>
-      </div>
-
-      <div class="product-info">
-        <h3>REALITY Y2K HOODIE</h3>
-        <div class="price">R899</div>
-
-        <div class="sizes">
-          <button class="size">S</button>
-          <button class="size">M</button>
-          <button class="size">L</button>
-          <button class="size">XL</button>
-        </div>
-
-        <button
-          class="add"
-          onclick="addToCart('REALITY Y2K HOODIE',899)">
-          ADD TO CART
-        </button>
-      </div>
-
-    </div>
-
-    <!-- PRODUCT 3 -->
-
-    <div class="product-card">
-
-      <div class="product-image">
-        <div class="tee racing"></div>
-      </div>
-
-      <div class="product-info">
-        <h3>REALITY RACING TEE</h3>
-        <div class="price">R499</div>
-
-        <div class="sizes">
-          <button class="size">S</button>
-          <button class="size">M</button>
-          <button class="size">L</button>
-          <button class="size">XL</button>
-        </div>
-
-        <button
-          class="add"
-          onclick="addToCart('REALITY RACING TEE',499)">
-          ADD TO CART
-        </button>
-      </div>
-
-    </div>
-
-    <!-- PRODUCT 4 -->
-
-    <div class="product-card">
-
-      <div class="product-image">
-        <div class="beanie"></div>
-      </div>
-
-      <div class="product-info">
-        <h3>REALITY OG BEANIE</h3>
-        <div class="price">R399</div>
-
-        <div class="sizes">
-          <button class="size">ONE SIZE</button>
-        </div>
-
-        <button
-          class="add"
-          onclick="addToCart('REALITY OG BEANIE',399)">
-          ADD TO CART
-        </button>
-      </div>
-
-    </div>
-
-  </div>
-
 </section>
 
-<section class="about" id="about">
+<section class="shop">
 
-  <h2>THIS IS REALITY.</h2>
+<h2 class="section-title">SHOP REALITY</h2>
 
+<div class="products">
+
+<div class="product">
+  <div class="product-image">
+    <img src="reality-speed-tee.png" alt="Reality Speed Tee">
+  </div>
+
+  <div class="product-info">
+    <h2>REALITY SPEED TEE</h2>
+    <div class="price">R499</div>
+
+    <div class="sizes">
+      <button class="size">S</button>
+      <button class="size">M</button>
+      <button class="size">L</button>
+      <button class="size">XL</button>
+    </div>
+
+    <button class="add" onclick="addToCart('REALITY SPEED TEE',499)">
+      ADD TO CART
+    </button>
+  </div>
+</div>
+
+<div class="product">
+  <div class="product-image">
+    <img src="reality-y2k-hoodie.png" alt="Reality Y2K Hoodie">
+  </div>
+
+  <div class="product-info">
+    <h2>REALITY Y2K HOODIE</h2>
+    <div class="price">R899</div>
+
+    <div class="sizes">
+      <button class="size">S</button>
+      <button class="size">M</button>
+      <button class="size">L</button>
+      <button class="size">XL</button>
+    </div>
+
+    <button class="add" onclick="addToCart('REALITY Y2K HOODIE',899)">
+      ADD TO CART
+    </button>
+  </div>
+</div>
+
+<div class="product">
+  <div class="product-image">
+    <img src="reality-racing-tee.png" alt="Reality Racing Tee">
+  </div>
+
+  <div class="product-info">
+    <h2>REALITY RACING TEE</h2>
+    <div class="price">R499</div>
+
+    <div class="sizes">
+      <button class="size">S</button>
+      <button class="size">M</button>
+      <button class="size">L</button>
+      <button class="size">XL</button>
+    </div>
+
+    <button class="add" onclick="addToCart('REALITY RACING TEE',499)">
+      ADD TO CART
+    </button>
+  </div>
+</div>
+
+<div class="product">
+  <div class="product-image">
+    <img src="reality-og-beanie.png" alt="Reality OG Beanie">
+  </div>
+
+  <div class="product-info">
+    <h2>REALITY OG BEANIE</h2>
+    <div class="price">R399</div>
+
+    <div class="sizes">
+      <button class="size">ONE SIZE</button>
+    </div>
+
+    <button class="add" onclick="addToCart('REALITY OG BEANIE',399)">
+      ADD TO CART
+    </button>
+  </div>
+</div>
+
+</div>
+</section>
+
+<section class="about">
+  <h2>REALITY</h2>
   <p>
-    Reality is a South African streetwear brand inspired by
-    late-night drives, Y2K culture, automotive design and
-    the energy of the streets.
-    <br><br>
-    No rules. No fake lifestyle.
-    Just Reality.
+    Built for the streets. Inspired by Y2K culture,
+    automotive design and hip-hop.
+    REALITY is South African streetwear made to stand out.
   </p>
-
 </section>
 
 <footer>
-
-  <div class="footer-logo">
-    REAL<span>ITY</span>
-  </div>
-
-  <p>© 2026 REALITY — SOUTH AFRICAN STREETWEAR</p>
-
+  © 2026 REALITY — South African Streetwear
 </footer>
-
-<!-- CART -->
 
 <div class="cart-panel" id="cartPanel">
 
   <div class="cart-header">
-
     <h2>YOUR CART</h2>
-
-    <button class="close-cart" onclick="toggleCart()">
-      ×
-    </button>
-
+    <button class="close" onclick="toggleCart()">×</button>
   </div>
 
-  <div id="cartItems">
-    <p style="color:#777;">
-      Your cart is empty.
-    </p>
-  </div>
+  <div id="cartItems"></div>
 
-  <div class="cart-total">
-
-    <span>TOTAL</span>
-
-    <span id="cartTotal">
-      R0
-    </span>
-
+  <div class="total">
+    TOTAL: R<span id="cartTotal">0</span>
   </div>
 
   <button class="checkout" onclick="checkout()">
@@ -805,102 +422,52 @@ footer p{
 
 <script>
 
-let cart = [];
+let cart=[];
 
 function addToCart(name,price){
-
-  cart.push({
-    name:name,
-    price:price
-  });
-
-  updateCart();
-
-  document
-    .getElementById("cartPanel")
-    .classList.add("open");
-}
-
-function removeItem(index){
-
-  cart.splice(index,1);
-
+  cart.push({name:name,price:price});
   updateCart();
 }
 
 function updateCart(){
 
-  const count =
-    document.getElementById("cartCount");
+  document.getElementById("cartCount").textContent=cart.length;
 
-  const items =
-    document.getElementById("cartItems");
+  let items=document.getElementById("cartItems");
 
-  const total =
-    document.getElementById("cartTotal");
+  items.innerHTML="";
 
-  count.textContent = cart.length;
-
-  if(cart.length === 0){
-
-    items.innerHTML =
-      '<p style="color:#777;">Your cart is empty.</p>';
-
-    total.textContent = "R0";
-
-    return;
-  }
-
-  let html = "";
-  let totalPrice = 0;
+  let total=0;
 
   cart.forEach((item,index)=>{
 
-    totalPrice += item.price;
+    total+=item.price;
 
-    html += `
+    items.innerHTML+=`
       <div class="cart-item">
-
-        <div>
-          <h4>${item.name}</h4>
-          <p>R${item.price}</p>
-        </div>
-
-        <button
-          class="remove"
-          onclick="removeItem(${index})">
+        <strong>${item.name}</strong>
+        <div>R${item.price}</div>
+        <button class="remove" onclick="removeItem(${index})">
           REMOVE
         </button>
-
       </div>
     `;
   });
 
-  items.innerHTML = html;
+  document.getElementById("cartTotal").textContent=total;
+}
 
-  total.textContent =
-    "R" + totalPrice;
+function removeItem(index){
+  cart.splice(index,1);
+  updateCart();
 }
 
 function toggleCart(){
-
-  document
-    .getElementById("cartPanel")
-    .classList.toggle("open");
+  document.getElementById("cartPanel").classList.toggle("open");
 }
 
 function checkout(){
-
-  if(cart.length === 0){
-
-    alert("Your cart is empty.");
-
-    return;
-  }
-
-  alert(
-    "Checkout is coming soon! Your Reality cart is ready."
-  );
+  alert("REALITY checkout coming soon.");
 }
 
 </script>
